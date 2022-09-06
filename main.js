@@ -17,8 +17,11 @@ const { setModuleImports, getAssemblyExports, getConfig } = await dotnet.create(
 setModuleImports("main.js", { renderCanvas });
 const config = getConfig();
 const exports = await getAssemblyExports(config.mainAssemblyName);
-globalThis.onClick = exports.MainJS.OnClick;
+globalThis.onRenderClick = exports.MainJS.OnRenderClick;
+globalThis.onFlyClick = exports.MainJS.OnFlyClick;
 
 await dotnet.run();
 const btnRender = document.getElementById("btnRender");
 btnRender.disabled = false;
+const btnFly = document.getElementById("btnFly");
+btnFly.disabled = false;

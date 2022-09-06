@@ -13,7 +13,8 @@
 
 <body>
   <h1>Mandelbrot demo on Net7 wasm</h1>
-  <button id="btnRender" onclick="globalThis.onClick()" disabled="true">Render</button>
+  <button id="btnRender" onclick="globalThis.onRenderClick()" disabled="true">Render</button>
+  <button id="btnFly" onclick="globalThis.onFlyClick()" disabled="true">Fly</button>
   <br /><br />
   <canvas id="out" width="640" height="480" style="border: dotted;"></canvas>
   <script type='module' src="./main.js"></script>

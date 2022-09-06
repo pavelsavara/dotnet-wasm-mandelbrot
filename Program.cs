@@ -1,9 +1,11 @@
 using System.Runtime.InteropServices.JavaScript;
 using System;
 using Algorithms;
+using System.Threading.Tasks;
 
 public partial class MainJS
 {
+    private const int cw = 640, ch = 480;
 
     public static void Main()
     {
@@ -14,62 +16,67 @@ public partial class MainJS
     internal static partial void RenderCanvas([JSMarshalAs<JSType.MemoryView>] ArraySegment<byte> rgba);
 
     [JSExport]
-    internal static void OnClick()
+    internal static async Task OnRenderClick()
     {
         var now = DateTime.UtcNow;
         Console.WriteLine("Rendering started");
-        int cw = 640, ch = 480;
+        await RenderView(-1.248f, -.0362f, .001f);
+        Console.WriteLine("Rendering finished in " + (DateTime.UtcNow - now).TotalMilliseconds + " ms");
+    }
 
-        double range, xc, yc;
+    [JSExport]
+    internal static async Task OnFlyClick()
+    {
+        var renderPoints = new Tuple<float, float, float>[150];
 
-        xc = -1.248;
-        yc = -.0362;
-        range = .001;
+        // Start point/range
+        float xs = -0.5f;
+        float ys = 0.0f;
+        float rs = 3.0f;
 
-        double xmin = (xc - range / 2.0).Clamp(-3.0, 1);
-        double xmax = (xc + range / 2.0).Clamp(-3.0, 1);
+        // End point/range
+        float xe = -.2649f;
+        float ye = -.8506f;
+        float re = 0.00048828125f;
+
+        // Interpolate all the points in between
+        float l = 1.0f / (renderPoints.Length - 1);
+        for (int i = 0; i < renderPoints.Length; i++)
+        {
+            float scale = (float)Math.Pow(l * i, 0.03125);
+            await RenderView(xs + (xe - xs) * scale, ys + (ye - ys) * scale, rs + (re - rs) * scale);
+        }
+    }
+
+    private static async Task RenderView(float xc, float yc, float scale)
+    {
+        // Get the min/max/step values and make sure they're all sensible
+        float xmin = (xc - scale / 2.0f).Clamp(-3.0f, 1f);
+        float xmax = (xc + scale / 2.0f).Clamp(-3.0f, 1f);
         if (xmin > xmax)
         {
-            double t = xmin;
+            float t = xmin;
             xmin = xmax;
             xmax = t;
         }
-        double ymin = (yc - range / 2.0).Clamp(-1.5f, 1.5f);
-        double ymax = (yc + range / 2.0).Clamp(-1.5f, 1.5f);
+        float ymax = (yc + scale / 2.0f).Clamp(-1.5f, 1.5f);
+        float ymin = (yc - scale / 2.0f).Clamp(-1.5f, 1.5f);
         if (ymin > ymax)
         {
-            double t = ymin;
+            float t = ymin;
             ymin = ymax;
             ymax = t;
         }
-        double ystep = (range / (double)ch).Clamp(0, ymax - ymin);
-        double xstep = (range / (double)cw).Clamp(0, xmax - xmin);
-        double step = Math.Max(ystep, xstep);
+        float ystep = (scale / ch).Clamp(0, ymax - ymin);
+        float xstep = (scale / cw).Clamp(0, xmax - xmin);
+        float step = Math.Max(ystep, xstep);
         xmin = xc - (cw * step / 2);
         xmax = xc + (cw * step / 2);
         ymin = yc - (ch * step / 2);
         ymax = yc + (ch * step / 2);
 
-        if (xmin == xmax || ymin == ymax ||
-            xmin + xstep <= xmin || ymin + ystep <= ymin ||
-            ymax - ystep >= ymax || xmax - xstep >= xmax)
-            return;
-
         var canvasRGBA = VectorFloatStrictRenderer.RenderMandelbrot(cw, ch, (float)xmin, (float)xmax, (float)ymin, (float)ymax, (float)step);
-
-        Console.WriteLine("Rendering finished in " + (DateTime.UtcNow - now).TotalMilliseconds + " ms");
         RenderCanvas(canvasRGBA);
-    }
-}
-
-public static class Ext
-{
-    public static double Clamp(this double val, double lo, double hi)
-    {
-        return Math.Min(Math.Max(val, lo), hi);
-    }
-    public static float Clamp(this float val, float lo, float hi)
-    {
-        return Math.Min(Math.Max(val, lo), hi);
+        await Task.Delay(10);
     }
 }
