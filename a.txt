@@ -1,0 +1,405 @@
+(func Mandelbrot_Algorithms_VectorFloatStrictRenderer_RenderMandelbrot_int_int_single_single_single_single_single(param $0 i32, $1 i32, $2 f32, $3 f32, $4 f32, $5 f32, $6 f32, $7 i32) (result i32))
+ local $8 i32
+ local $9 i32
+ local $10 i32
+ local $11 v128
+ local $12 i32
+ local $13 v128
+ local $14 v128
+ local $15 i32
+ local $16 v128
+ local $17 v128
+ local $18 v128
+ local $19 i32
+ local $20 i32
+ local $21 i32
+ local $22 i32
+ local $23 v128
+ local $24 v128
+ local $25 v128
+ local $26 v128
+ local $27 i32
+ local $28 i32
+ local $29 v128
+ local $30 i32
+ local $31 i32
+ local $32 i32
+ global.get $__stack_pointer
+ i32.const -1
+ i32.add
+ local.tee $8
+ global.set $__stack_pointer
+ i32.const 1659513
+ i32.load8.u
+ i32.eqz
+ if
+  i32.const 1121
+  call mono_aot_Mandelbrot_init_method
+  i32.const 1659513
+  i32.const 1
+  i32.store8
+ 
+ local.get $8
+ v128.const 0x00000000000000000000000000000000    [SIMD]
+ v128.store offset:32 align:4    [SIMD]
+ local.get $8
+ i32.const 1657856
+ i32.load align:2
+ i32.const 16
+ call aot_wrapper_alloc_2_AllocSmall_obj_iiii
+ local.tee $9
+ i32.store offset:24 align:2
+ local.get $9
+ i32.const 12
+ i32.add
+ local.tee $19
+ local.get $6
+ f32.store align:2
+ local.get $9
+ local.get $2
+ f32.store offset:8 align:2
+ local.get $8
+ i32.const 1657864
+ i32.load align:2
+ local.get $0
+ local.get $1
+ i32.mul
+ i32.const 2
+ i32.shl
+ call aot_wrapper_alloc_1_AllocVector_obj_iiii
+ local.tee $20
+ i32.store offset:28 align:2
+ local.get $19
+ f32.load align:2
+ local.set $6
+ local.get $8
+ i32.const 1657872
+ i32.load align:2
+ i32.const 64
+ call aot_wrapper_alloc_2_AllocSmall_obj_iiii
+ local.tee $1
+ i32.store offset:20 align:2
+ local.get $1
+ i32.const 16
+ i32.add
+ local.tee $10
+ local.get $9
+ i32.store align:2
+ i32.const 1657880
+ i32.load align:2
+ local.get $10
+ i32.const 9
+ i32.shr.u
+ i32.add
+ i32.const 1
+ i32.store8
+ local.get $1
+ i32.const 1657888
+ i32.load align:2
+ call mini_llvmonly_init_delegate
+ local.get $8
+ i32.const 48
+ i32.add
+ local.get $1
+ local.get $8
+ call Mandelbrot_Algorithms_VectorHelper_Create_System_Func_2_int_single
+ local.get $4
+ local.get $5
+ f32.le
+ if
+  local.get $19
+  v128.load32.splat align:2    [SIMD]
+  local.set $25
+  local.get $6
+  f32.const 4
+  f32.mul
+  f32x4.splat    [SIMD]
+  local.set $26
+  local.get $3
+  f32x4.splat    [SIMD]
+  local.set $24
+  local.get $20
+  i32.const 16
+  i32.add
+  local.set $15
+  local.get $4
+  f32x4.splat    [SIMD]
+  local.set $16
+  local.get $20
+  i32.const 12
+  i32.add
+  local.set $27
+  loop
+   local.get $8
+   v128.load offset:48 align:4    [SIMD]
+   local.tee $17
+   local.get $24
+   f32x4.le    [SIMD]
+   local.get $18
+   f32x4.eq    [SIMD]
+   v128.any.true    [SIMD]
+   i32.eqz
+   if
+    local.get $0
+    local.get $21
+    i32.mul
+    local.set $28
+    i32.const 0
+    local.set $22
+    loop
+     local.get $8
+     local.get $18
+     v128.store offset:32 align:4    [SIMD]
+     v128.const 0x3f8000003f8000003f8000003f800000    [SIMD]
+     local.set $23
+     local.get $16
+     local.set $11
+     local.get $17
+     local.set $13
+     loop
+      local.get $8
+      local.get $23
+      local.get $8
+      v128.load offset:32 align:4    [SIMD]
+      f32x4.add    [SIMD]
+      v128.store offset:32 align:4    [SIMD]
+      local.get $11
+      local.get $11
+      f32x4.mul    [SIMD]
+      local.set $29
+      local.get $16
+      local.get $11
+      local.get $13
+      f32x4.mul    [SIMD]
+      local.tee $11
+      local.get $11
+      f32x4.add    [SIMD]
+      f32x4.add    [SIMD]
+      local.tee $14
+      local.set $11
+      local.get $23
+      v128.const 0x00000000000000000000000000000000    [SIMD]
+      local.get $17
+      local.get $13
+      local.get $13
+      f32x4.mul    [SIMD]
+      local.get $29
+      f32x4.sub    [SIMD]
+      f32x4.add    [SIMD]
+      local.tee $13
+      local.get $13
+      f32x4.mul    [SIMD]
+      local.get $14
+      local.get $14
+      f32x4.mul    [SIMD]
+      f32x4.add    [SIMD]
+      v128.const 0x40800000408000004080000040800000    [SIMD]
+      f32x4.le    [SIMD]
+      local.get $8
+      v128.load offset:32 align:4    [SIMD]
+      local.tee $14
+      v128.const 0x447a0000447a0000447a0000447a0000    [SIMD]
+      f32x4.le    [SIMD]
+      v128.and    [SIMD]
+      v128.bitselect    [SIMD]
+      local.tee $23
+      v128.any.true    [SIMD]
+      br.if
+     
+     local.get $22
+     local.get $28
+     i32.add
+     local.set $30
+     local.get $27
+     i32.load align:2
+     local.set $1
+     i32.const 0
+     local.set $10
+     block
+      block
+       block
+        block
+         loop
+          local.get $8
+          local.get $14
+          v128.store align:4    [SIMD]
+          i32.const 1000
+          block
+           local.get $8
+           local.get $10
+           i32.const 3
+           i32.and
+           i32.const 2
+           i32.shl
+           i32.or
+           f32.load align:2
+           local.tee $6
+           f32.abs
+           f32.const 2.1474836E+09
+           f32.lt
+           if
+            local.get $6
+            i32.trunc.f32.s
+            br
+           
+           i32.const -268435456
+          
+          local.tee $9
+          i32.const 1000
+          local.get $9
+          i32.const 1000
+          i32.lt.s
+          select
+          i32.sub
+          local.tee $12
+          i32.const 71
+          i32.rem.s
+          local.set $31
+          local.get $12
+          i32.const 43
+          i32.rem.s
+          local.set $32
+          local.get $10
+          local.get $30
+          i32.add
+          i32.const 2
+          i32.shl
+          local.tee $9
+          local.get $1
+          i32.lt.u
+          if
+           local.get $9
+           local.get $15
+           i32.add
+           local.get $12
+           i32.const 97
+           i32.rem.s
+           i32.const 41
+           i32.mul
+           i32.store8
+           local.get $1
+           local.get $9
+           i32.const 1
+           i32.or
+           local.tee $12
+           i32.le.u
+           br.if
+           local.get $12
+           local.get $15
+           i32.add
+           local.get $31
+           i32.const 19
+           i32.mul
+           i32.store8
+           local.get $1
+           local.get $9
+           i32.const 2
+           i32.or
+           local.tee $12
+           i32.le.u
+           br.if
+           local.get $12
+           local.get $15
+           i32.add
+           local.get $32
+           i32.const 23
+           i32.mul
+           i32.store8
+           local.get $1
+           local.get $9
+           i32.const 3
+           i32.or
+           local.tee $9
+           i32.le.u
+           br.if
+           local.get $9
+           local.get $15
+           i32.add
+           i32.const 0
+           i32.store8
+           local.get $10
+           i32.const 1
+           i32.add
+           local.tee $10
+           i32.const 4
+           i32.eq
+           br.if
+           local.get $8
+           v128.load offset:32 align:4    [SIMD]
+           local.set $14
+           br
+          
+         
+         i32.const 162
+         call mini_llvmonly_throw_corlib_exception
+         unreachable
+        
+        i32.const 162
+        call mini_llvmonly_throw_corlib_exception
+        unreachable
+       
+       i32.const 162
+       call mini_llvmonly_throw_corlib_exception
+       unreachable
+      
+      i32.const 162
+      call mini_llvmonly_throw_corlib_exception
+      unreachable
+     
+     local.get $22
+     i32.const 4
+     i32.add
+     local.set $22
+     local.get $26
+     local.get $17
+     f32x4.add    [SIMD]
+     local.tee $17
+     local.get $24
+     f32x4.le    [SIMD]
+     local.get $18
+     f32x4.eq    [SIMD]
+     v128.any.true    [SIMD]
+     i32.eqz
+     br.if
+    
+   
+   local.get $21
+   i32.const 1
+   i32.add
+   local.set $21
+   local.get $25
+   local.get $16
+   f32x4.add    [SIMD]
+   local.set $16
+   local.get $4
+   local.get $19
+   f32.load align:2
+   f32.add
+   local.tee $4
+   local.get $5
+   f32.le
+   br.if
+  
+ 
+ local.get $8
+ i32.const -1
+ i32.sub
+ global.set $__stack_pointer
+ local.get $20
+
+(func Mandelbrot_Algorithms_VectorFloatStrictRenderer__c__DisplayClass2_0__RenderMandelbrotb__0_int(param $0 i32, $1 i32, $2 i32) (result f32))
+ local.get $0
+ i32.eqz
+ if
+  call mini_llvmonly_throw_nullref_exception
+  unreachable
+ 
+ local.get $0
+ f32.load offset:8 align:2
+ local.get $0
+ f32.load offset:12 align:2
+ local.get $1
+ f32.convert.i32.s
+ f32.mul
+ f32.add
+
