@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--  Licensed to the .NET Foundation under one or more agreements. -->
+<!-- The .NET Foundation licenses this file to you under the MIT license. -->
+<html>
+
+<head>
+  <title>Mandelbrot demo on Net7 wasm</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="modulepreload" href="./main.js" />
+  <link rel="modulepreload" href="./dotnet.js" />
+</head>
+
+<body>
+  <h1>Mandelbrot demo on Net7 wasm</h1>
+  <button id="btnRender" onclick="globalThis.onRenderClick()" disabled="true">Render</button>
+  <button id="btnFly" onclick="globalThis.onFlyClick()" disabled="true">Fly</button>
+  <br /><br />
+  <canvas id="out" width="640" height="480" style="border: dotted;"></canvas>
+  <script type='module' src="./main.js"></script>
+  <br /><br />
+  <p>
+    Code at: <a href="https://github.com/pavelsavara/dotnet-wasm-mandelbrot">https://github.com/pavelsavara/dotnet-wasm-mandelbrot</a>
+  </p>
+  <p>
+    Original code at: <a href="https://github.com/microsoft/dotnet-samples/tree/master/System.Numerics/SIMD/Mandelbrot">https://github.com/microsoft/dotnet-samples/tree/master/System.Numerics/SIMD/Mandelbrot</a>
+  </p>
+  
+  
+</body>
+
+</html>
