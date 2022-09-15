@@ -5610,16 +5610,6 @@ var _mono_aot_System_Console_get_method = Module["_mono_aot_System_Console_get_m
 };
 
 /** @type {function(...*):?} */
-var _mono_aot_System_Diagnostics_Tracing_get_method = Module["_mono_aot_System_Diagnostics_Tracing_get_method"] = function() {
-  return (_mono_aot_System_Diagnostics_Tracing_get_method = Module["_mono_aot_System_Diagnostics_Tracing_get_method"] = Module["asm"]["mono_aot_System_Diagnostics_Tracing_get_method"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _mono_aot_System_Memory_get_method = Module["_mono_aot_System_Memory_get_method"] = function() {
-  return (_mono_aot_System_Memory_get_method = Module["_mono_aot_System_Memory_get_method"] = Module["asm"]["mono_aot_System_Memory_get_method"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
 var _mono_aot_System_Numerics_Vectors_get_method = Module["_mono_aot_System_Numerics_Vectors_get_method"] = function() {
   return (_mono_aot_System_Numerics_Vectors_get_method = Module["_mono_aot_System_Numerics_Vectors_get_method"] = Module["asm"]["mono_aot_System_Numerics_Vectors_get_method"]).apply(null, arguments);
 };
@@ -5645,11 +5635,6 @@ var _mono_aot_System_Runtime_get_method = Module["_mono_aot_System_Runtime_get_m
 };
 
 /** @type {function(...*):?} */
-var _mono_aot_System_Runtime_InteropServices_get_method = Module["_mono_aot_System_Runtime_InteropServices_get_method"] = function() {
-  return (_mono_aot_System_Runtime_InteropServices_get_method = Module["_mono_aot_System_Runtime_InteropServices_get_method"] = Module["asm"]["mono_aot_System_Runtime_InteropServices_get_method"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
 var _mono_aot_System_Runtime_InteropServices_JavaScript_get_method = Module["_mono_aot_System_Runtime_InteropServices_JavaScript_get_method"] = function() {
   return (_mono_aot_System_Runtime_InteropServices_JavaScript_get_method = Module["_mono_aot_System_Runtime_InteropServices_JavaScript_get_method"] = Module["asm"]["mono_aot_System_Runtime_InteropServices_JavaScript_get_method"]).apply(null, arguments);
 };
@@ -5657,26 +5642,6 @@ var _mono_aot_System_Runtime_InteropServices_JavaScript_get_method = Module["_mo
 /** @type {function(...*):?} */
 var _mono_aot_System_Runtime_Intrinsics_get_method = Module["_mono_aot_System_Runtime_Intrinsics_get_method"] = function() {
   return (_mono_aot_System_Runtime_Intrinsics_get_method = Module["_mono_aot_System_Runtime_Intrinsics_get_method"] = Module["asm"]["mono_aot_System_Runtime_Intrinsics_get_method"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _mono_aot_System_Threading_get_method = Module["_mono_aot_System_Threading_get_method"] = function() {
-  return (_mono_aot_System_Threading_get_method = Module["_mono_aot_System_Threading_get_method"] = Module["asm"]["mono_aot_System_Threading_get_method"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _mono_aot_System_Threading_Thread_get_method = Module["_mono_aot_System_Threading_Thread_get_method"] = function() {
-  return (_mono_aot_System_Threading_Thread_get_method = Module["_mono_aot_System_Threading_Thread_get_method"] = Module["asm"]["mono_aot_System_Threading_Thread_get_method"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _mono_aot_System_Threading_ThreadPool_get_method = Module["_mono_aot_System_Threading_ThreadPool_get_method"] = function() {
-  return (_mono_aot_System_Threading_ThreadPool_get_method = Module["_mono_aot_System_Threading_ThreadPool_get_method"] = Module["asm"]["mono_aot_System_Threading_ThreadPool_get_method"]).apply(null, arguments);
-};
-
-/** @type {function(...*):?} */
-var _mono_aot_System_Transactions_Local_get_method = Module["_mono_aot_System_Transactions_Local_get_method"] = function() {
-  return (_mono_aot_System_Transactions_Local_get_method = Module["_mono_aot_System_Transactions_Local_get_method"] = Module["asm"]["mono_aot_System_Transactions_Local_get_method"]).apply(null, arguments);
 };
 
 /** @type {function(...*):?} */
