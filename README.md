@@ -1,5 +1,7 @@
 # Port of good old mandelbrot demo
 
+This demo requires SIMD browser support
+
 Original code at: https://github.com/microsoft/dotnet-samples/tree/master/System.Numerics/SIMD/Mandelbrot
 
 With Net7 RC1 or later do:

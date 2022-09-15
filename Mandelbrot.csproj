@@ -9,7 +9,7 @@
 		<EnableAggressiveTrimming>true</EnableAggressiveTrimming>
 		<PublishTrimmed>true</PublishTrimmed>
 		<RunAOTCompilation>true</RunAOTCompilation>
-		<WasmSIMD>true</WasmSIMD>
+		<WasmEnableSIMD>true</WasmEnableSIMD>
 		<WasmNativeDebugSymbols>true</WasmNativeDebugSymbols>
 		<WasmNativeStrip>false</WasmNativeStrip>
 	</PropertyGroup>
